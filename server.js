@@ -97,19 +97,18 @@ wss.on('connection', (ws) => {
 
   // Simulate sending real-time prices at intervals
   const priceInterval = setInterval(() => {
-    // Generate random price data
     const priceData = {
-      symbol: 'XYZ', // Replace with actual symbol
-      price: (Math.random() * 1000).toFixed(2) // Random price for demonstration
+      symbol: 'XYZ', 
+      price: (Math.random() * 1000).toFixed(2) 
     };
     // Send price data to connected clients
     ws.send(JSON.stringify(priceData));
-  }, 3000); // Send price updates every 3 seconds
+  }, 3000);
 
   // Handle WebSocket close event
   ws.on('close', () => {
     console.log('WebSocket connection closed');
-    clearInterval(priceInterval); // Stop sending price updates
+    clearInterval(priceInterval); 
   });
 });
 
@@ -128,8 +127,7 @@ app.get('/news', async (req, res) => {
 // Endpoint to retrieve historical stock prices
 app.get('/historical-prices', async (req, res) => {
   try {
-    // Sample request to fetch historical prices for a specific symbol
-    const symbol = 'XYZ'; // Replace with actual symbol
+    const symbol = 'XYZ';
     const response = await fetch(`${HISTORICAL_PRICES_API_ENDPOINT}?symbol=${symbol}`);
     const historicalPricesData = await response.json();
     res.json(historicalPricesData);
