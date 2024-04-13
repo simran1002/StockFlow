@@ -93,7 +93,7 @@ const wss = new WebSocket.Server({ port: WEBSOCKET_PORT });
 
 // WebSocket connection handler
 wss.on('connection', (ws) => {
-  console.log('WebSocket connection established');
+  console.log('WebSocket connection is established');
 
   // Simulate sending real-time prices at intervals
   const priceInterval = setInterval(() => {
